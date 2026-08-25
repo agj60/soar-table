@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoarCalc — SDIP</title>
+<style>
+  :root {
+    --bg:#0e1116; --panel:#161b23; --line:#252c38; --ink:#e6edf6;
+    --dim:#8b98ab; --accent:#5fb0ff; --good:#41d18d; --warn:#e8b84b; --bad:#e8735a;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:14px/1.5 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  .wrap { max-width:1400px; margin:0 auto; padding:28px 20px 60px; }
+  header { border-bottom:1px solid var(--line); padding-bottom:18px; margin-bottom:22px; }
+  h1 { margin:0 0 4px; font-size:22px; letter-spacing:-.01em; }
+  h1 .icao { color:var(--accent); font-family:ui-monospace,monospace; }
+  .sub { color:var(--dim); font-size:13px; }
+  .bar { display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+         background:var(--panel); border:1px solid var(--line); border-radius:10px;
+         padding:12px 16px; margin-bottom:22px; }
+  .age { color:var(--dim); font-size:13px; }
+  .age b { color:var(--ink); font-weight:600; }
+  .stale { color:var(--warn); }
+  label { color:var(--dim); font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+  select { background:#1d2430; color:var(--ink); border:1px solid var(--line);
+           border-radius:7px; padding:7px 11px; font-size:14px; }
+  .tablewrap { overflow-x:auto; border:1px solid var(--line); border-radius:10px; background:var(--panel); }
+  table { border-collapse:collapse; width:100%; min-width:640px; }
+  th, td { padding:8px 12px; text-align:right; border-bottom:1px solid var(--line); white-space:nowrap; }
+  thead th { background:#1b2230; font-size:11px; text-transform:uppercase;
+             letter-spacing:.06em; color:var(--dim); font-weight:600; }
+  thead tr:first-child th { text-align:center; border-left:1px solid var(--line); color:var(--ink); font-size:12px; }
+  thead tr:first-child th:first-child { border-left:none; }
+  th.time, td.time { text-align:left; font-family:ui-monospace,monospace;
+                     position:sticky; left:0; background:var(--panel); }
+  thead th.time { background:#1b2230; }
+  td.g { border-left:1px solid var(--line); }
+  tbody tr:hover td { background:#1a212c; }
+  tbody tr:hover td.time { background:#1a212c; }
+  .num { font-family:ui-monospace,monospace; font-variant-numeric:tabular-nums; }
+  .none { color:#4a5568; }
+  .best { color:var(--good); font-weight:700; }
+  .msg { color:var(--dim); font-size:12px; margin-top:14px; }
+  .warns { margin-top:18px; border:1px solid #3a2f1a; background:#1d1810;
+           border-radius:8px; padding:10px 14px; color:var(--warn); font-size:12.5px; }
+  .warns div { margin:2px 0; }
+  .err { border:1px solid #4a2320; background:#1f1210; color:var(--bad);
+         border-radius:8px; padding:14px 16px; }
+  .legend { display:flex; gap:18px; flex-wrap:wrap; margin-top:14px; color:var(--dim); font-size:12px; }
+  .legend b { color:var(--ink); font-weight:600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 id="title">SoarCalc</h1>
+    <div class="sub" id="place">Loading…</div>
+  </header>
+
+  <div class="bar">
+    <span class="age" id="age">Loading…</span>
+    <span style="flex:1"></span>
+    <label for="date">Reference date</label>
+    <select id="date"><option>—</option></select>
+  </div>
+
+  <div id="out"></div>
+</div>
+
+<script>
+var D = null;
+
+function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+function fmt(v, dp) { return (v === null || v === undefined) ? null : v.toFixed(dp); }
+
+function ago(iso) {
+  var mins = Math.round((Date.now() - new Date(iso).getTime()) / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return mins + ' min ago';
+  var h = Math.floor(mins / 60);
+  if (h < 24) return h + (h === 1 ? ' hour ago' : ' hours ago');
+  var d = Math.floor(h / 24);
+  return d + (d === 1 ? ' day ago' : ' days ago');
+}
+
+fetch('./data.json?t=' + Date.now())
+  .then(function (r) { if (!r.ok) throw new Error('data.json returned ' + r.status); return r.json(); })
+  .then(function (j) { D = j; boot(); })
+  .catch(function (e) {
+    document.getElementById('age').textContent = '';
+    document.getElementById('out').innerHTML =
+      '<div class="err"><b>No forecast data published yet.</b><br>' + esc(e.message) + '</div>';
+  });
+
+function boot() {
+  var f = D.field || {};
+  document.getElementById('title').innerHTML =
+    '<span class="icao">' + esc(f.icao || '') + '</span> — ' + esc(f.name || '');
+  document.getElementById('place').textContent =
+    [f.place, (f.lat != null ? f.lat.toFixed(6) + ', ' + f.lon.toFixed(6) : null),
+     (f.elevationM != null ? 'elev ' + f.elevationM + ' m' : null),
+     (D.window ? 'times ' + D.window.from + ':00–' + D.window.to + ':00 ' + f.tz : null)
+    ].filter(Boolean).join(' · ');
+
+  var mins = (Date.now() - new Date(D.collectedAt).getTime()) / 60000;
+  var el = document.getElementById('age');
+  el.innerHTML = 'Collected <b>' + esc(ago(D.collectedAt)) + '</b> · ' +
+    esc(new Date(D.collectedAt).toLocaleString()) +
+    (D.step ? ' · ' + D.step + 'h steps' : '');
+  if (mins > 180) el.className = 'age stale';
+
+  var sel = document.getElementById('date');
+  sel.innerHTML = '';
+  // Default to today at the field if it is present, else the first date published.
+  var todayField = new Date().toLocaleDateString('en-CA', { timeZone: f.tz || undefined });
+  (D.dates || []).forEach(function (d) {
+    var o = document.createElement('option');
+    o.value = d;
+    o.textContent = new Date(d + 'T12:00:00').toLocaleDateString(undefined,
+      { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+    sel.appendChild(o);
+  });
+  if ((D.dates || []).indexOf(todayField) >= 0) sel.value = todayField;
+  sel.addEventListener('change', render);
+  render();
+}
+
+function render() {
+  var out = document.getElementById('out');
+  var date = document.getElementById('date').value;
+  var rows = (D.rows || []).filter(function (r) { return r.date === date; });
+
+  var productive = {};
+  (D.rows || []).forEach(function (r) { if (r.climb !== null) productive[r.model] = true; });
+  var models = (D.models || []).map(function (m) { return m.model; })
+    .filter(function (m) { return productive[m]; });
+
+  if (!models.length || !rows.length) {
+    out.innerHTML = '<p class="msg">No data for this date.</p>';
+    return;
+  }
+
+  var times = [];
+  rows.forEach(function (r) { if (times.indexOf(r.time) < 0) times.push(r.time); });
+  times.sort();
+
+  var by = {};
+  rows.forEach(function (r) { by[r.model + '|' + r.time] = r; });
+
+  var units = D.units || { wind: 'm/s', altitude: 'm' };
+  var h = '<div class="tablewrap"><table><thead><tr><th class="time" rowspan="2">Local</th>';
+  models.forEach(function (m) {
+    var meta = (D.models || []).filter(function (x) { return x.model === m; })[0] || {};
+    h += '<th colspan="3">' + esc(meta.name || m) + '</th>';
+  });
+  h += '</tr><tr>';
+  models.forEach(function () {
+    h += '<th class="g">Climb<br><span style="font-weight:400">' + esc(units.wind) + '</span></th>' +
+         '<th>Hcrit<br><span style="font-weight:400">' + esc(units.altitude) + ' AGL</span></th>' +
+         '<th>B/S</th>';
+  });
+  h += '</tr></thead><tbody>';
+
+  times.forEach(function (t) {
+    var best = -Infinity;
+    models.forEach(function (m) {
+      var r = by[m + '|' + t];
+      if (r && r.climb !== null && r.climb > best) best = r.climb;
+    });
+
+    h += '<tr><td class="time">' + esc(t) + '</td>';
+    models.forEach(function (m) {
+      var r = by[m + '|' + t];
+      if (!r) { h += '<td class="g none">—</td><td class="none">—</td><td class="none">—</td>'; return; }
+
+      var bits = [];
+      if (r.hcrit !== null) bits.push('Hcrit ' + r.hcrit + ' m AMSL · model ground ' + r.surfaceM + ' m');
+      if (r.message) bits.push(r.message);
+      var title = bits.length ? ' title="' + esc(bits.join(' — ')) + '"' : '';
+
+      var climb = fmt(r.climb, 1), hcrit = fmt(r.hcritAgl, 0), bs = fmt(r.bs, 2);
+      var cls = 'num g' + (r.climb !== null && r.climb === best && best > 0 ? ' best' : '');
+      h += '<td class="' + cls + '"' + title + '>' + (climb === null ? '<span class="none">—</span>' : climb) + '</td>';
+      h += '<td class="num"' + title + '>' + (hcrit === null ? '<span class="none">—</span>' : hcrit) + '</td>';
+      h += '<td class="num"' + title + '>' + (bs === null ? '<span class="none">—</span>' : bs) + '</td>';
+    });
+    h += '</tr>';
+  });
+  h += '</tbody></table></div>';
+
+  h += '<div class="legend">' +
+       '<span><b>Climb</b> glider climb rate (thermal updraft − 0.9 m/s glider sink)</span>' +
+       '<span><b>Hcrit</b> height where climb falls to zero, AGL — hover for AMSL</span>' +
+       '<span><b>B/S</b> buoyancy/shear ratio — higher favours thermals, lower favours streets</span>' +
+       '<span><b>—</b> no value returned</span></div>';
+
+  var shown = (D.models || []).filter(function (m) { return models.indexOf(m.model) >= 0; });
+  var grounds = shown.map(function (m) {
+    var g = m.modelElevation != null ? Math.round(m.modelElevation) : Math.round(m.elevation);
+    return esc(m.name || m.model) + ' ' + g + ' m';
+  }).join(', ');
+  h += '<p class="msg">Hcrit is height above ground, measured from each model&rsquo;s own surface (' +
+       grounds + ') rather than the ' + (D.field && D.field.elevationM) + ' m airfield elevation, so 0 means ' +
+       'no usable height and the models stay comparable.</p>';
+
+  var refs = shown.map(function (m) {
+    return esc(m.name || m.model) + ' ' +
+      (m.refTime || '').replace('T', ' ').replace(/:00\.000Z|Z$/, 'Z') + ' (' + m.step + 'h)';
+  }).join(' · ');
+  h += '<p class="msg">Model runs: ' + refs + '. Only forecast points Windy actually publishes are ' +
+       'shown — nothing is interpolated.</p>';
+
+  if (D.warnings && D.warnings.length) {
+    h += '<div class="warns"><b>Notes</b>' +
+         D.warnings.slice(0, 12).map(function (w) { return '<div>' + esc(w) + '</div>'; }).join('') +
+         (D.warnings.length > 12 ? '<div>…and ' + (D.warnings.length - 12) + ' more</div>' : '') +
+         '</div>';
+  }
+
+  out.innerHTML = h;
+}
+</script>
+</body>
+</html>

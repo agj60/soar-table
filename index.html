@@ -85,14 +85,23 @@ function ago(iso) {
   return d + (d === 1 ? ' day ago' : ' days ago');
 }
 
+function nothingYet(detail) {
+  document.getElementById('age').textContent = '';
+  document.getElementById('place').textContent = '';
+  document.getElementById('out').innerHTML =
+    '<div class="err"><b>No forecast published yet.</b><br>' +
+    'The collector has not pushed a snapshot to this site yet.' +
+    (detail ? '<br><span style="opacity:.7">' + esc(detail) + '</span>' : '') + '</div>';
+}
+
 fetch('./data.json?t=' + Date.now())
   .then(function (r) { if (!r.ok) throw new Error('data.json returned ' + r.status); return r.json(); })
-  .then(function (j) { D = j; boot(); })
-  .catch(function (e) {
-    document.getElementById('age').textContent = '';
-    document.getElementById('out').innerHTML =
-      '<div class="err"><b>No forecast data published yet.</b><br>' + esc(e.message) + '</div>';
-  });
+  .then(function (j) {
+    // A freshly created site ships a placeholder; do not render it as a 1969 forecast.
+    if (!j || !j.collectedAt || !(j.rows || []).length) { nothingYet(null); return; }
+    D = j; boot();
+  })
+  .catch(function (e) { nothingYet(e.message); });
 
 function boot() {
   var f = D.field || {};

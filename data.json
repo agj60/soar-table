@@ -1,5 +1,5 @@
 {
- "collectedAt": "2026-08-26T08:25:34.143Z",
+ "collectedAt": "2026-08-26T09:25:49.330Z",
  "field": {
   "icao": "SDIP",
   "name": "Fazenda Centro de Vôo a Vela Ipuã",
@@ -35,7 +35,7 @@
    "step": 1,
    "refTime": "2026-08-26T00:00:00Z",
    "points": 34,
-   "elevation": 587,
+   "elevation": 594,
    "modelElevation": 642
   },
   {

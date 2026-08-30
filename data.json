@@ -1,5 +1,5 @@
 {
- "collectedAt": "2026-08-30T14:26:50.951Z",
+ "collectedAt": "2026-08-30T15:28:19.993Z",
  "field": {
   "icao": "SDIP",
   "name": "Fazenda Centro de Vôo a Vela Ipuã",
@@ -57,7 +57,9 @@
    "modelElevation": 674
   }
  ],
- "warnings": [],
+ "warnings": [
+  "ecmwf 2026-08-30 14:00: no value (timed out)"
+ ],
  "rows": [
   {
    "model": "ecmwf",
@@ -159,20 +161,12 @@
    "ts": 1788109200000,
    "date": "2026-08-30",
    "time": "14:00",
-   "pluginModel": "ecmwf",
-   "pluginVersion": "1.3.17",
-   "refTimeZ": "06Z",
-   "shown": "Sun 30 - 14:00",
-   "climb": 1.2,
-   "hcrit": 1275,
-   "bs": 0.1,
-   "cloud": 37,
-   "blTop": 1535,
-   "cuBase": 2025,
-   "blShear": 3,
-   "temp": 30.2,
-   "message": null,
-   "hcritAgl": 633
+   "climb": null,
+   "hcrit": null,
+   "bs": null,
+   "cloud": null,
+   "message": "no value returned",
+   "hcritAgl": null
   },
   {
    "model": "ecmwf",

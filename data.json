@@ -1,5 +1,5 @@
 {
- "collectedAt": "2026-09-05T23:47:17.489Z",
+ "collectedAt": "2026-09-06T00:47:44.382Z",
  "field": {
   "icao": "SDIP",
   "name": "Fazenda Centro de Vôo a Vela Ipuã",
@@ -26,7 +26,8 @@
   "2026-09-07",
   "2026-09-08",
   "2026-09-09",
-  "2026-09-10"
+  "2026-09-10",
+  "2026-09-11"
  ],
  "models": [
   {
@@ -34,7 +35,7 @@
    "name": "ECMWF",
    "step": 1,
    "refTime": "2026-09-05T12:00:00Z",
-   "points": 36,
+   "points": 37,
    "elevation": 594,
    "modelElevation": 642
   },
@@ -43,7 +44,7 @@
    "name": "GFS",
    "step": 1,
    "refTime": "2026-09-05T12:00:00Z",
-   "points": 42,
+   "points": 44,
    "elevation": 594,
    "modelElevation": 730
   },
@@ -52,7 +53,7 @@
    "name": "ICON",
    "step": 1,
    "refTime": "2026-09-05T18:00:00Z",
-   "points": 30,
+   "points": 32,
    "elevation": 594,
    "modelElevation": 675
   }
@@ -886,6 +887,29 @@
    "temp": 24.2,
    "message": null,
    "hcritAgl": 0
+  },
+  {
+   "model": "ecmwf",
+   "modelName": "ECMWF",
+   "refTime": "2026-09-05T12:00:00Z",
+   "surfaceM": 642,
+   "ts": 1789149600000,
+   "date": "2026-09-11",
+   "time": "15:00",
+   "pluginModel": "ecmwf",
+   "pluginVersion": "1.3.17",
+   "refTimeZ": "12Z",
+   "shown": "Fri 11 - 15:00",
+   "climb": 1.5,
+   "hcrit": 1706,
+   "bs": 0.03,
+   "cloud": 31,
+   "blTop": 2087,
+   "cuBase": 2178,
+   "blShear": 7,
+   "temp": 30.4,
+   "message": null,
+   "hcritAgl": 1064
   },
   {
    "model": "gfs",
@@ -1854,6 +1878,52 @@
    "hcritAgl": 0
   },
   {
+   "model": "gfs",
+   "modelName": "GFS",
+   "refTime": "2026-09-05T12:00:00Z",
+   "surfaceM": 730,
+   "ts": 1789138800000,
+   "date": "2026-09-11",
+   "time": "12:00",
+   "pluginModel": "gfs",
+   "pluginVersion": "1.3.17",
+   "refTimeZ": "12Z",
+   "shown": "Fri 11 - 12:00",
+   "climb": 0.4,
+   "hcrit": 1082,
+   "bs": 0.01,
+   "cloud": 83,
+   "blTop": 1365,
+   "cuBase": 1244,
+   "blShear": 5,
+   "temp": 22.6,
+   "message": null,
+   "hcritAgl": 352
+  },
+  {
+   "model": "gfs",
+   "modelName": "GFS",
+   "refTime": "2026-09-05T12:00:00Z",
+   "surfaceM": 730,
+   "ts": 1789149600000,
+   "date": "2026-09-11",
+   "time": "15:00",
+   "pluginModel": "gfs",
+   "pluginVersion": "1.3.17",
+   "refTimeZ": "12Z",
+   "shown": "Fri 11 - 15:00",
+   "climb": 0.4,
+   "hcrit": 1453,
+   "bs": 0.01,
+   "cloud": 87,
+   "blTop": 2015,
+   "cuBase": 1863,
+   "blShear": 7,
+   "temp": 26.1,
+   "message": null,
+   "hcritAgl": 723
+  },
+  {
    "model": "icon",
    "modelName": "ICON",
    "refTime": "2026-09-05T18:00:00Z",
@@ -2542,6 +2612,52 @@
    "temp": 26.6,
    "message": null,
    "hcritAgl": 0
+  },
+  {
+   "model": "icon",
+   "modelName": "ICON",
+   "refTime": "2026-09-05T18:00:00Z",
+   "surfaceM": 675,
+   "ts": 1789138800000,
+   "date": "2026-09-11",
+   "time": "12:00",
+   "pluginModel": "icon",
+   "pluginVersion": "1.3.17",
+   "refTimeZ": "18Z",
+   "shown": "Fri 11 - 12:00",
+   "climb": 1.1,
+   "hcrit": 1347,
+   "bs": 0.01,
+   "cloud": 57,
+   "blTop": 1635,
+   "cuBase": 1427,
+   "blShear": 9,
+   "temp": 27.2,
+   "message": null,
+   "hcritAgl": 672
+  },
+  {
+   "model": "icon",
+   "modelName": "ICON",
+   "refTime": "2026-09-05T18:00:00Z",
+   "surfaceM": 675,
+   "ts": 1789149600000,
+   "date": "2026-09-11",
+   "time": "15:00",
+   "pluginModel": "icon",
+   "pluginVersion": "1.3.17",
+   "refTimeZ": "18Z",
+   "shown": "Fri 11 - 15:00",
+   "climb": 0.6,
+   "hcrit": 1497,
+   "bs": 0.01,
+   "cloud": 81,
+   "blTop": 2005,
+   "cuBase": 1894,
+   "blShear": 7,
+   "temp": 28.7,
+   "message": null,
+   "hcritAgl": 822
   }
  ]
 }

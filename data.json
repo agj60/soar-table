@@ -1,5 +1,5 @@
 {
- "collectedAt": "2026-09-19T02:02:42.062Z",
+ "collectedAt": "2026-09-19T03:02:40.325Z",
  "field": {
   "icao": "SDIP",
   "name": "Fazenda Centro de Vôo a Vela Ipuã",
@@ -142,15 +142,15 @@
    "refTimeZ": "18Z",
    "shown": "Sat 19 - 11:00",
    "climb": 1.6,
-   "hcrit": 1423,
+   "hcrit": 1427,
    "bs": 0.03,
-   "cloud": 24,
+   "cloud": 20,
    "blTop": 1692,
    "cuBase": 1610,
    "blShear": 7,
    "temp": 24.1,
    "message": null,
-   "hcritAgl": 781
+   "hcritAgl": 785
   },
   {
    "model": "ecmwf",
@@ -282,7 +282,7 @@
    "climb": 0,
    "hcrit": 642,
    "bs": 0,
-   "cloud": 21,
+   "cloud": 20,
    "blTop": 642,
    "cuBase": 1397,
    "blShear": 0,
@@ -394,16 +394,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "18Z",
    "shown": "Sun 20 - 14:00",
-   "climb": 1.5,
-   "hcrit": 1511,
+   "climb": 1.6,
+   "hcrit": 1518,
    "bs": 0.03,
-   "cloud": 28,
+   "cloud": 21,
    "blTop": 1816,
    "cuBase": 2383,
    "blShear": 7,
    "temp": 29.3,
    "message": null,
-   "hcritAgl": 869
+   "hcritAgl": 876
   },
   {
    "model": "ecmwf",
@@ -466,7 +466,7 @@
    "climb": 0,
    "hcrit": 642,
    "bs": 0,
-   "cloud": 35,
+   "cloud": 39,
    "blTop": 642,
    "cuBase": 1796,
    "blShear": 0,
@@ -670,16 +670,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "18Z",
    "shown": "Tues 22 - 12:00",
-   "climb": 1.9,
-   "hcrit": 1898,
+   "climb": 2,
+   "hcrit": 1909,
    "bs": 0.01,
-   "cloud": 36,
+   "cloud": 27,
    "blTop": 2290,
    "cuBase": 2412,
    "blShear": 15,
    "temp": 30.5,
    "message": null,
-   "hcritAgl": 1256
+   "hcritAgl": 1267
   },
   {
    "model": "ecmwf",

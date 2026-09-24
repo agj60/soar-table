@@ -1,5 +1,5 @@
 {
- "collectedAt": "2026-09-24T17:04:29.793Z",
+ "collectedAt": "2026-09-24T18:03:17.629Z",
  "field": {
   "icao": "SDIP",
   "name": "Fazenda Centro de Vôo a Vela Ipuã",
@@ -2073,15 +2073,15 @@
    "refTimeZ": "12Z",
    "shown": "Fri 25 - 11:00",
    "climb": 0.5,
-   "hcrit": 1049,
+   "hcrit": 1047,
    "bs": 0.06,
-   "cloud": 75,
+   "cloud": 76,
    "blTop": 1294,
    "cuBase": 1195,
    "blShear": 3,
    "temp": 23,
    "message": null,
-   "hcritAgl": 374
+   "hcritAgl": 372
   },
   {
    "model": "icon",
@@ -2095,16 +2095,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "12Z",
    "shown": "Fri 25 - 12:00",
-   "climb": 1,
-   "hcrit": 1209,
-   "bs": 0.04,
-   "cloud": 56,
+   "climb": 0.7,
+   "hcrit": 1166,
+   "bs": 0.03,
+   "cloud": 75,
    "blTop": 1450,
    "cuBase": 1280,
    "blShear": 5,
    "temp": 24.2,
    "message": null,
-   "hcritAgl": 534
+   "hcritAgl": 491
   },
   {
    "model": "icon",
@@ -2141,16 +2141,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "12Z",
    "shown": "Fri 25 - 14:00",
-   "climb": 1,
-   "hcrit": 1347,
+   "climb": 1.1,
+   "hcrit": 1361,
    "bs": 0.02,
-   "cloud": 63,
+   "cloud": 56,
    "blTop": 1662,
    "cuBase": 1378,
    "blShear": 6,
    "temp": 25.6,
    "message": null,
-   "hcritAgl": 672
+   "hcritAgl": 686
   },
   {
    "model": "icon",
@@ -2165,15 +2165,15 @@
    "refTimeZ": "12Z",
    "shown": "Fri 25 - 15:00",
    "climb": 0.7,
-   "hcrit": 1149,
+   "hcrit": 1144,
    "bs": 0.05,
-   "cloud": 60,
+   "cloud": 63,
    "blTop": 1415,
    "cuBase": 1359,
    "blShear": 4,
    "temp": 25.5,
    "message": null,
-   "hcritAgl": 474
+   "hcritAgl": 469
   },
   {
    "model": "icon",
@@ -2233,16 +2233,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "12Z",
    "shown": "Sat 26 - 10:00",
-   "climb": 0.6,
-   "hcrit": 851,
-   "bs": 0.6,
-   "cloud": 31,
+   "climb": 0.5,
+   "hcrit": 842,
+   "bs": 0.51,
+   "cloud": 47,
    "blTop": 958,
    "cuBase": 1060,
    "blShear": 1,
    "temp": 23.6,
    "message": null,
-   "hcritAgl": 176
+   "hcritAgl": 167
   },
   {
    "model": "icon",
@@ -2257,15 +2257,15 @@
    "refTimeZ": "12Z",
    "shown": "Sat 26 - 11:00",
    "climb": 1,
-   "hcrit": 1002,
+   "hcrit": 1003,
    "bs": 0.41,
-   "cloud": 32,
+   "cloud": 31,
    "blTop": 1155,
    "cuBase": 1151,
    "blShear": 1,
    "temp": 25.4,
    "message": null,
-   "hcritAgl": 327
+   "hcritAgl": 328
   },
   {
    "model": "icon",
@@ -2305,7 +2305,7 @@
    "climb": 1.5,
    "hcrit": 1384,
    "bs": 0.05,
-   "cloud": 25,
+   "cloud": 24,
    "blTop": 1635,
    "cuBase": 1514,
    "blShear": 5,
@@ -2326,15 +2326,15 @@
    "refTimeZ": "12Z",
    "shown": "Sat 26 - 14:00",
    "climb": 1.5,
-   "hcrit": 1420,
+   "hcrit": 1415,
    "bs": 0.04,
-   "cloud": 17,
+   "cloud": 25,
    "blTop": 1682,
    "cuBase": 1631,
    "blShear": 6,
    "temp": 29,
    "message": null,
-   "hcritAgl": 745
+   "hcritAgl": 740
   },
   {
    "model": "icon",
@@ -2371,16 +2371,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "12Z",
    "shown": "Sat 26 - 16:00",
-   "climb": 0.8,
-   "hcrit": 1113,
+   "climb": 0.9,
+   "hcrit": 1114,
    "bs": 0.08,
-   "cloud": 18,
+   "cloud": 16,
    "blTop": 1334,
    "cuBase": 1625,
    "blShear": 3,
    "temp": 28.8,
    "message": null,
-   "hcritAgl": 438
+   "hcritAgl": 439
   },
   {
    "model": "icon",
@@ -2441,15 +2441,15 @@
    "refTimeZ": "12Z",
    "shown": "Sun 27 - 11:00",
    "climb": 0.7,
-   "hcrit": 1090,
-   "bs": 0.34,
-   "cloud": 69,
+   "hcrit": 1097,
+   "bs": 0.37,
+   "cloud": 65,
    "blTop": 1326,
    "cuBase": 1156,
    "blShear": 1,
    "temp": 25,
    "message": null,
-   "hcritAgl": 415
+   "hcritAgl": 422
   },
   {
    "model": "icon",
@@ -2463,16 +2463,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "12Z",
    "shown": "Sun 27 - 12:00",
-   "climb": 1,
-   "hcrit": 1299,
-   "bs": 0.17,
-   "cloud": 62,
+   "climb": 0.9,
+   "hcrit": 1284,
+   "bs": 0.15,
+   "cloud": 69,
    "blTop": 1581,
    "cuBase": 1276,
    "blShear": 2,
    "temp": 26.2,
    "message": null,
-   "hcritAgl": 624
+   "hcritAgl": 609
   },
   {
    "model": "icon",
@@ -2486,16 +2486,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "12Z",
    "shown": "Sun 27 - 13:00",
-   "climb": 1.1,
-   "hcrit": 1334,
+   "climb": 1,
+   "hcrit": 1328,
    "bs": 0.11,
-   "cloud": 59,
+   "cloud": 62,
    "blTop": 1622,
    "cuBase": 1397,
    "blShear": 3,
    "temp": 27,
    "message": null,
-   "hcritAgl": 659
+   "hcritAgl": 653
   },
   {
    "model": "icon",
@@ -2533,15 +2533,15 @@
    "refTimeZ": "12Z",
    "shown": "Sun 27 - 15:00",
    "climb": 0.7,
-   "hcrit": 1069,
-   "bs": 0.86,
-   "cloud": 56,
+   "hcrit": 1073,
+   "bs": 0.9,
+   "cloud": 53,
    "blTop": 1297,
    "cuBase": 1275,
    "blShear": 1,
    "temp": 25.9,
    "message": null,
-   "hcritAgl": 394
+   "hcritAgl": 398
   },
   {
    "model": "icon",
@@ -2555,16 +2555,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "12Z",
    "shown": "Mon 28 - 12:00",
-   "climb": 1.1,
-   "hcrit": 1169,
-   "bs": 0.07,
-   "cloud": 49,
+   "climb": 1,
+   "hcrit": 1160,
+   "bs": 0.06,
+   "cloud": 56,
    "blTop": 1386,
    "cuBase": 1310,
    "blShear": 4,
    "temp": 26.6,
    "message": null,
-   "hcritAgl": 494
+   "hcritAgl": 485
   },
   {
    "model": "icon",

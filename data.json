@@ -1,5 +1,5 @@
 {
- "collectedAt": "2026-09-25T07:11:18.475Z",
+ "collectedAt": "2026-09-25T08:06:15.673Z",
  "field": {
   "icao": "SDIP",
   "name": "Fazenda Centro de Vôo a Vela Ipuã",
@@ -58,9 +58,7 @@
    "modelElevation": 675
   }
  ],
- "warnings": [
-  "gfs 2026-09-26 12:00: no value (timed out)"
- ],
+ "warnings": [],
  "rows": [
   {
    "model": "ecmwf",
@@ -258,16 +256,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "18Z",
    "shown": "Fri 25 - 16:00",
-   "climb": 0.2,
-   "hcrit": 742,
-   "bs": 0.82,
-   "cloud": 40,
+   "climb": 0.3,
+   "hcrit": 755,
+   "bs": 1.01,
+   "cloud": 17,
    "blTop": 856,
    "cuBase": 1330,
    "blShear": 1,
    "temp": 24.5,
    "message": null,
-   "hcritAgl": 100
+   "hcritAgl": 113
   },
   {
    "model": "ecmwf",
@@ -328,15 +326,15 @@
    "refTimeZ": "18Z",
    "shown": "Sat 26 - 11:00",
    "climb": 1.4,
-   "hcrit": 1082,
-   "bs": 0.19,
+   "hcrit": 1083,
+   "bs": 0.2,
    "cloud": 4,
    "blTop": 1249,
    "cuBase": 1485,
    "blShear": 3,
    "temp": 26.6,
    "message": null,
-   "hcritAgl": 440
+   "hcritAgl": 441
   },
   {
    "model": "ecmwf",
@@ -420,15 +418,15 @@
    "refTimeZ": "18Z",
    "shown": "Sat 26 - 15:00",
    "climb": 1.5,
-   "hcrit": 1444,
+   "hcrit": 1443,
    "bs": 0.07,
-   "cloud": 6,
+   "cloud": 8,
    "blTop": 1727,
    "cuBase": 1972,
    "blShear": 4,
    "temp": 30.2,
    "message": null,
-   "hcritAgl": 802
+   "hcritAgl": 801
   },
   {
    "model": "ecmwf",
@@ -468,7 +466,7 @@
    "climb": 0,
    "hcrit": 642,
    "bs": 0,
-   "cloud": 2,
+   "cloud": 4,
    "blTop": 642,
    "cuBase": 1555,
    "blShear": 0,
@@ -489,15 +487,15 @@
    "refTimeZ": "18Z",
    "shown": "Sun 27 - 10:00",
    "climb": 1,
-   "hcrit": 935,
+   "hcrit": 934,
    "bs": 0.15,
-   "cloud": 2,
+   "cloud": 3,
    "blTop": 1064,
    "cuBase": 1405,
    "blShear": 2,
    "temp": 26,
    "message": null,
-   "hcritAgl": 293
+   "hcritAgl": 292
   },
   {
    "model": "ecmwf",
@@ -512,15 +510,15 @@
    "refTimeZ": "18Z",
    "shown": "Sun 27 - 11:00",
    "climb": 1.6,
-   "hcrit": 1255,
-   "bs": 0.32,
-   "cloud": 6,
+   "hcrit": 1258,
+   "bs": 0.33,
+   "cloud": 0,
    "blTop": 1466,
    "cuBase": 1672,
    "blShear": 2,
    "temp": 28,
    "message": null,
-   "hcritAgl": 613
+   "hcritAgl": 616
   },
   {
    "model": "ecmwf",
@@ -558,15 +556,15 @@
    "refTimeZ": "18Z",
    "shown": "Sun 27 - 13:00",
    "climb": 2,
-   "hcrit": 1640,
+   "hcrit": 1638,
    "bs": 0.14,
-   "cloud": 5,
+   "cloud": 8,
    "blTop": 1941,
    "cuBase": 2061,
    "blShear": 4,
    "temp": 30.3,
    "message": null,
-   "hcritAgl": 998
+   "hcritAgl": 996
   },
   {
    "model": "ecmwf",
@@ -583,7 +581,7 @@
    "climb": 1.9,
    "hcrit": 1658,
    "bs": 0.14,
-   "cloud": 9,
+   "cloud": 8,
    "blTop": 1976,
    "cuBase": 2228,
    "blShear": 4,
@@ -627,15 +625,15 @@
    "refTimeZ": "18Z",
    "shown": "Sun 27 - 16:00",
    "climb": 0.6,
-   "hcrit": 874,
-   "bs": 1.65,
-   "cloud": 10,
+   "hcrit": 876,
+   "bs": 1.7,
+   "cloud": 6,
    "blTop": 1018,
    "cuBase": 1934,
    "blShear": 1,
    "temp": 29.4,
    "message": null,
-   "hcritAgl": 232
+   "hcritAgl": 234
   },
   {
    "model": "ecmwf",
@@ -695,16 +693,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "18Z",
    "shown": "Mon 28 - 15:00",
-   "climb": 1.2,
-   "hcrit": 1159,
-   "bs": 0.08,
-   "cloud": 8,
+   "climb": 1,
+   "hcrit": 1144,
+   "bs": 0.06,
+   "cloud": 30,
    "blTop": 1368,
    "cuBase": 2197,
    "blShear": 4,
    "temp": 31.2,
    "message": null,
-   "hcritAgl": 517
+   "hcritAgl": 502
   },
   {
    "model": "ecmwf",
@@ -741,16 +739,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "18Z",
    "shown": "Tues 29 - 15:00",
-   "climb": 1.7,
-   "hcrit": 1940,
+   "climb": 1.6,
+   "hcrit": 1931,
    "bs": 0.04,
-   "cloud": 27,
+   "cloud": 33,
    "blTop": 2367,
    "cuBase": 2703,
    "blShear": 6,
    "temp": 33.1,
    "message": null,
-   "hcritAgl": 1298
+   "hcritAgl": 1289
   },
   {
    "model": "ecmwf",
@@ -764,16 +762,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "18Z",
    "shown": "Weds 30 - 12:00",
-   "climb": 1.6,
-   "hcrit": 1403,
+   "climb": 1.7,
+   "hcrit": 1409,
    "bs": 0.06,
-   "cloud": 27,
+   "cloud": 19,
    "blTop": 1665,
    "cuBase": 2076,
    "blShear": 5,
    "temp": 31.4,
    "message": null,
-   "hcritAgl": 761
+   "hcritAgl": 767
   },
   {
    "model": "ecmwf",
@@ -787,16 +785,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "18Z",
    "shown": "Weds 30 - 15:00",
-   "climb": 0.9,
-   "hcrit": 1125,
-   "bs": 0.03,
-   "cloud": 39,
+   "climb": 1.1,
+   "hcrit": 1142,
+   "bs": 0.04,
+   "cloud": 19,
    "blTop": 1354,
    "cuBase": 2146,
    "blShear": 5,
    "temp": 31,
    "message": null,
-   "hcritAgl": 483
+   "hcritAgl": 500
   },
   {
    "model": "gfs",
@@ -834,15 +832,15 @@
    "refTimeZ": "00Z",
    "shown": "Fri 25 - 11:00",
    "climb": 1.9,
-   "hcrit": 1669,
-   "bs": 0.04,
-   "cloud": 10,
+   "hcrit": 1670,
+   "bs": 0.05,
+   "cloud": 8,
    "blTop": 1960,
    "cuBase": 1868,
    "blShear": 7,
    "temp": 26.2,
    "message": null,
-   "hcritAgl": 939
+   "hcritAgl": 940
   },
   {
    "model": "gfs",
@@ -879,16 +877,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Fri 25 - 13:00",
-   "climb": 2.3,
-   "hcrit": 2161,
+   "climb": 2.2,
+   "hcrit": 2149,
    "bs": 0.03,
-   "cloud": 7,
+   "cloud": 20,
    "blTop": 2557,
    "cuBase": 2049,
    "blShear": 9,
    "temp": 28,
    "message": null,
-   "hcritAgl": 1431
+   "hcritAgl": 1419
   },
   {
    "model": "gfs",
@@ -951,7 +949,7 @@
    "climb": 0,
    "hcrit": 730,
    "bs": 0,
-   "cloud": 59,
+   "cloud": 57,
    "blTop": 730,
    "cuBase": 1545,
    "blShear": 0,
@@ -974,7 +972,7 @@
    "climb": 0,
    "hcrit": 730,
    "bs": 0,
-   "cloud": 43,
+   "cloud": 59,
    "blTop": 730,
    "cuBase": 1402,
    "blShear": 0,
@@ -994,16 +992,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Sat 26 - 10:00",
-   "climb": 1.5,
-   "hcrit": 1344,
-   "bs": 0.12,
-   "cloud": 0,
+   "climb": 1.1,
+   "hcrit": 1312,
+   "bs": 0.08,
+   "cloud": 43,
    "blTop": 1558,
    "cuBase": 1959,
    "blShear": 4,
    "temp": 27.5,
    "message": null,
-   "hcritAgl": 614
+   "hcritAgl": 582
   },
   {
    "model": "gfs",
@@ -1036,12 +1034,20 @@
    "ts": 1790434800000,
    "date": "2026-09-26",
    "time": "12:00",
-   "climb": null,
-   "hcrit": null,
-   "bs": null,
-   "cloud": null,
-   "message": "no value returned",
-   "hcritAgl": null
+   "pluginModel": "gfs",
+   "pluginVersion": "1.3.17",
+   "refTimeZ": "00Z",
+   "shown": "Sat 26 - 12:00",
+   "climb": 2.3,
+   "hcrit": 2044,
+   "bs": 0.08,
+   "cloud": 0,
+   "blTop": 2406,
+   "cuBase": 2397,
+   "blShear": 6,
+   "temp": 30.8,
+   "message": null,
+   "hcritAgl": 1314
   },
   {
    "model": "gfs",
@@ -1125,15 +1131,15 @@
    "refTimeZ": "00Z",
    "shown": "Sat 26 - 16:00",
    "climb": 1.5,
-   "hcrit": 1871,
-   "bs": 0.06,
-   "cloud": 5,
+   "hcrit": 1869,
+   "bs": 0.05,
+   "cloud": 7,
    "blTop": 2272,
    "cuBase": 2607,
    "blShear": 5,
    "temp": 31.5,
    "message": null,
-   "hcritAgl": 1141
+   "hcritAgl": 1139
   },
   {
    "model": "gfs",
@@ -1216,16 +1222,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Sun 27 - 12:00",
-   "climb": 2.4,
-   "hcrit": 2160,
-   "bs": 0.06,
-   "cloud": 2,
+   "climb": 2.3,
+   "hcrit": 2152,
+   "bs": 0.05,
+   "cloud": 11,
    "blTop": 2546,
    "cuBase": 2154,
    "blShear": 7,
    "temp": 30.1,
    "message": null,
-   "hcritAgl": 1430
+   "hcritAgl": 1422
   },
   {
    "model": "gfs",
@@ -1239,16 +1245,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Sun 27 - 13:00",
-   "climb": 2.3,
-   "hcrit": 2150,
-   "bs": 0.06,
-   "cloud": 11,
+   "climb": 2.2,
+   "hcrit": 2143,
+   "bs": 0.05,
+   "cloud": 18,
    "blTop": 2547,
    "cuBase": 2215,
    "blShear": 7,
    "temp": 30.5,
    "message": null,
-   "hcritAgl": 1420
+   "hcritAgl": 1413
   },
   {
    "model": "gfs",
@@ -1377,16 +1383,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Mon 28 - 11:00",
-   "climb": 1.6,
-   "hcrit": 1433,
+   "climb": 1.7,
+   "hcrit": 1437,
    "bs": 0.07,
-   "cloud": 13,
+   "cloud": 5,
    "blTop": 1670,
    "cuBase": 1976,
    "blShear": 5,
    "temp": 28.6,
    "message": null,
-   "hcritAgl": 703
+   "hcritAgl": 707
   },
   {
    "model": "gfs",
@@ -1469,16 +1475,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Mon 28 - 15:00",
-   "climb": 1.3,
-   "hcrit": 1924,
-   "bs": 0.07,
-   "cloud": 54,
+   "climb": 1.7,
+   "hcrit": 1979,
+   "bs": 0.09,
+   "cloud": 22,
    "blTop": 2386,
    "cuBase": 2331,
    "blShear": 4,
    "temp": 31.3,
    "message": null,
-   "hcritAgl": 1194
+   "hcritAgl": 1249
   },
   {
    "model": "gfs",
@@ -1492,16 +1498,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Mon 28 - 16:00",
-   "climb": 0.3,
-   "hcrit": 960,
+   "climb": 0.4,
+   "hcrit": 961,
    "bs": 0.09,
-   "cloud": 54,
+   "cloud": 53,
    "blTop": 1155,
    "cuBase": 1793,
    "blShear": 2,
    "temp": 28.3,
    "message": null,
-   "hcritAgl": 230
+   "hcritAgl": 231
   },
   {
    "model": "gfs",
@@ -1656,7 +1662,7 @@
    "climb": 2.2,
    "hcrit": 2335,
    "bs": 0.02,
-   "cloud": 1,
+   "cloud": 2,
    "blTop": 2795,
    "cuBase": 2834,
    "blShear": 11,
@@ -1722,16 +1728,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Weds 30 - 12:00",
-   "climb": 1.9,
-   "hcrit": 1592,
-   "bs": 0.03,
-   "cloud": 0,
+   "climb": 1.8,
+   "hcrit": 1585,
+   "bs": 0.02,
+   "cloud": 11,
    "blTop": 1855,
    "cuBase": 2635,
    "blShear": 9,
    "temp": 31.9,
    "message": null,
-   "hcritAgl": 862
+   "hcritAgl": 855
   },
   {
    "model": "gfs",
@@ -1745,16 +1751,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Weds 30 - 15:00",
-   "climb": 2.2,
-   "hcrit": 2514,
+   "climb": 2.1,
+   "hcrit": 2511,
    "bs": 0.02,
-   "cloud": 11,
+   "cloud": 14,
    "blTop": 3026,
    "cuBase": 3144,
    "blShear": 11,
    "temp": 34.5,
    "message": null,
-   "hcritAgl": 1784
+   "hcritAgl": 1781
   },
   {
    "model": "icon",
@@ -1792,15 +1798,15 @@
    "refTimeZ": "00Z",
    "shown": "Fri 25 - 11:00",
    "climb": 0.7,
-   "hcrit": 1057,
-   "bs": 0.05,
-   "cloud": 68,
+   "hcrit": 1063,
+   "bs": 0.06,
+   "cloud": 65,
    "blTop": 1281,
    "cuBase": 1236,
    "blShear": 3,
    "temp": 23.1,
    "message": null,
-   "hcritAgl": 382
+   "hcritAgl": 388
   },
   {
    "model": "icon",
@@ -1815,15 +1821,15 @@
    "refTimeZ": "00Z",
    "shown": "Fri 25 - 12:00",
    "climb": 0.8,
-   "hcrit": 1171,
+   "hcrit": 1175,
    "bs": 0.03,
-   "cloud": 68,
+   "cloud": 67,
    "blTop": 1431,
    "cuBase": 1301,
    "blShear": 5,
    "temp": 24.3,
    "message": null,
-   "hcritAgl": 496
+   "hcritAgl": 500
   },
   {
    "model": "icon",
@@ -1907,7 +1913,7 @@
    "refTimeZ": "00Z",
    "shown": "Fri 25 - 16:00",
    "climb": 0.5,
-   "hcrit": 1094,
+   "hcrit": 1092,
    "bs": 0.22,
    "cloud": 63,
    "blTop": 1389,
@@ -1915,7 +1921,7 @@
    "blShear": 1,
    "temp": 25.4,
    "message": null,
-   "hcritAgl": 419
+   "hcritAgl": 417
   },
   {
    "model": "icon",
@@ -1930,15 +1936,15 @@
    "refTimeZ": "00Z",
    "shown": "Fri 25 - 17:00",
    "climb": 0,
-   "hcrit": 797,
-   "bs": 0.64,
-   "cloud": 55,
+   "hcrit": 675,
+   "bs": 0.57,
+   "cloud": 63,
    "blTop": 1041,
    "cuBase": 1276,
    "blShear": 1,
    "temp": 24.8,
    "message": null,
-   "hcritAgl": 122
+   "hcritAgl": 0
   },
   {
    "model": "icon",
@@ -1976,15 +1982,15 @@
    "refTimeZ": "00Z",
    "shown": "Sat 26 - 11:00",
    "climb": 1.1,
-   "hcrit": 1022,
+   "hcrit": 1023,
    "bs": 0.27,
-   "cloud": 24,
+   "cloud": 23,
    "blTop": 1175,
    "cuBase": 1207,
    "blShear": 2,
    "temp": 25.9,
    "message": null,
-   "hcritAgl": 347
+   "hcritAgl": 348
   },
   {
    "model": "icon",
@@ -2022,15 +2028,15 @@
    "refTimeZ": "00Z",
    "shown": "Sat 26 - 13:00",
    "climb": 1.5,
-   "hcrit": 1344,
+   "hcrit": 1345,
    "bs": 0.05,
-   "cloud": 22,
+   "cloud": 20,
    "blTop": 1582,
    "cuBase": 1553,
    "blShear": 6,
    "temp": 28.8,
    "message": null,
-   "hcritAgl": 669
+   "hcritAgl": 670
   },
   {
    "model": "icon",
@@ -2068,15 +2074,15 @@
    "refTimeZ": "00Z",
    "shown": "Sat 26 - 15:00",
    "climb": 1.5,
-   "hcrit": 1511,
+   "hcrit": 1509,
    "bs": 0.03,
-   "cloud": 11,
+   "cloud": 13,
    "blTop": 1807,
    "cuBase": 1776,
    "blShear": 7,
    "temp": 29.7,
    "message": null,
-   "hcritAgl": 836
+   "hcritAgl": 834
   },
   {
    "model": "icon",
@@ -2091,15 +2097,15 @@
    "refTimeZ": "00Z",
    "shown": "Sat 26 - 16:00",
    "climb": 1.1,
-   "hcrit": 1275,
+   "hcrit": 1273,
    "bs": 0.04,
-   "cloud": 9,
+   "cloud": 11,
    "blTop": 1536,
    "cuBase": 1745,
    "blShear": 5,
    "temp": 29.3,
    "message": null,
-   "hcritAgl": 600
+   "hcritAgl": 598
   },
   {
    "model": "icon",
@@ -2116,7 +2122,7 @@
    "climb": 0,
    "hcrit": 675,
    "bs": 0,
-   "cloud": 6,
+   "cloud": 9,
    "blTop": 675,
    "cuBase": 1516,
    "blShear": 0,
@@ -2136,16 +2142,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Sun 27 - 10:00",
-   "climb": 0.5,
-   "hcrit": 936,
-   "bs": 0.57,
-   "cloud": 61,
+   "climb": 1,
+   "hcrit": 974,
+   "bs": 1.04,
+   "cloud": 6,
    "blTop": 1108,
    "cuBase": 1024,
    "blShear": 1,
    "temp": 23.6,
    "message": null,
-   "hcritAgl": 261
+   "hcritAgl": 299
   },
   {
    "model": "icon",
@@ -2159,16 +2165,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Sun 27 - 11:00",
-   "climb": 0.7,
-   "hcrit": 1088,
-   "bs": 0.54,
-   "cloud": 69,
+   "climb": 0.8,
+   "hcrit": 1103,
+   "bs": 0.62,
+   "cloud": 61,
    "blTop": 1325,
    "cuBase": 1169,
    "blShear": 1,
    "temp": 25.1,
    "message": null,
-   "hcritAgl": 413
+   "hcritAgl": 428
   },
   {
    "model": "icon",
@@ -2183,15 +2189,15 @@
    "refTimeZ": "00Z",
    "shown": "Sun 27 - 12:00",
    "climb": 0.9,
-   "hcrit": 1277,
-   "bs": 0.26,
-   "cloud": 68,
+   "hcrit": 1275,
+   "bs": 0.25,
+   "cloud": 69,
    "blTop": 1571,
    "cuBase": 1292,
    "blShear": 2,
    "temp": 26.4,
    "message": null,
-   "hcritAgl": 602
+   "hcritAgl": 600
   },
   {
    "model": "icon",
@@ -2275,15 +2281,15 @@
    "refTimeZ": "00Z",
    "shown": "Sun 27 - 16:00",
    "climb": 0.3,
-   "hcrit": 916,
-   "bs": 1.18,
-   "cloud": 58,
+   "hcrit": 918,
+   "bs": 1.2,
+   "cloud": 57,
    "blTop": 1124,
    "cuBase": 1233,
    "blShear": 1,
    "temp": 25,
    "message": null,
-   "hcritAgl": 241
+   "hcritAgl": 243
   },
   {
    "model": "icon",
@@ -2343,16 +2349,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Mon 28 - 15:00",
-   "climb": 1.2,
-   "hcrit": 1390,
-   "bs": 0.04,
-   "cloud": 38,
+   "climb": 0.7,
+   "hcrit": 1327,
+   "bs": 0.02,
+   "cloud": 70,
    "blTop": 1687,
    "cuBase": 1536,
    "blShear": 5,
    "temp": 29.1,
    "message": null,
-   "hcritAgl": 715
+   "hcritAgl": 652
   },
   {
    "model": "icon",
@@ -2366,16 +2372,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Tues 29 - 12:00",
-   "climb": 1.2,
-   "hcrit": 1766,
+   "climb": 1.9,
+   "hcrit": 1848,
    "bs": 0.01,
-   "cloud": 70,
+   "cloud": 28,
    "blTop": 2208,
    "cuBase": 1937,
    "blShear": 12,
    "temp": 31.9,
    "message": null,
-   "hcritAgl": 1091
+   "hcritAgl": 1173
   },
   {
    "model": "icon",
@@ -2389,16 +2395,16 @@
    "pluginVersion": "1.3.17",
    "refTimeZ": "00Z",
    "shown": "Tues 29 - 15:00",
-   "climb": 2,
-   "hcrit": 2582,
+   "climb": 1.9,
+   "hcrit": 2562,
    "bs": 0.01,
-   "cloud": 28,
+   "cloud": 39,
    "blTop": 3148,
    "cuBase": 2179,
    "blShear": 13,
    "temp": 33,
    "message": null,
-   "hcritAgl": 1907
+   "hcritAgl": 1887
   },
   {
    "model": "icon",
@@ -2436,15 +2442,15 @@
    "refTimeZ": "00Z",
    "shown": "Weds 30 - 15:00",
    "climb": 2,
-   "hcrit": 2192,
+   "hcrit": 2194,
    "bs": 0.02,
-   "cloud": 11,
+   "cloud": 9,
    "blTop": 2645,
    "cuBase": 2603,
    "blShear": 10,
    "temp": 32.9,
    "message": null,
-   "hcritAgl": 1517
+   "hcritAgl": 1519
   }
  ]
 }

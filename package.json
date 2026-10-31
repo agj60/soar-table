@@ -1,0 +1,12 @@
+{
+  "name": "soar-table",
+  "private": true,
+  "type": "module",
+  "description": "SDIP soaring forecast page: Open-Meteo soundings turned into SoarCalc-style thermal parameters in the browser",
+  "scripts": {
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "suncalc": "1.9.0"
+  }
+}

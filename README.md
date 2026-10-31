@@ -11,7 +11,8 @@ numbers in the browser:
 - **Forecast:** [Open-Meteo](https://open-meteo.com/) (CC BY 4.0). Models are GFS (default), ECMWF and ICON. Values
   appear only at hours the model itself computed: Open-Meteo blends the hours in between, and those are left out.
 - **Thermal parameters:** SoarCalc's method (RASP), reimplemented in `js/sounding.js` from the formulas. No SoarCalc
-  code is included.
+  code is included. The sun position in `js/sun.js` uses SunCalc's formulas (BSD-2, notice kept), so the page loads
+  no outside scripts.
 - **SBSJ METAR/TAF:** [MET Norway](https://api.met.no/) (CC BY 4.0).
 - Links to AISWEB (SBSJ) and INMET's meteogram for Caçapava-SP.
 
@@ -20,7 +21,7 @@ Heights are metres above each model's own ground, which is stated for every hour
 ## Development
 
 ```sh
-npm install && npm test        # Node 20+, built-in test runner; suncalc is the only dependency
+npm install && npm test        # Node 20+, built-in test runner; suncalc is a dev-only cross-check
 python3 -m http.server 8765    # then open http://localhost:8765/
 ```
 

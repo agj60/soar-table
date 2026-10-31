@@ -110,7 +110,12 @@ function condensationHeight(levels, u) {
 }
 
 /** SoarCalc's thermal parameters for one sounding. Never returns 0 for something it could not compute. */
+const SURFACE_FIELDS = [['z', 'model ground height'], ['p', 'surface pressure'], ['t', 'surface temperature'],
+  ['rh', 'surface humidity'], ['td', 'surface dewpoint'], ['vx', 'surface wind'], ['vy', 'surface wind']];
+
 export function computeSoaring({ tsMs, lat, lon, surface, levels, cloud }) {
+  for (const [key, name] of SURFACE_FIELDS)
+    if (!Number.isFinite(surface[key])) return { ok: false, reason: `${name} missing` };
   if (cloud === null || cloud === undefined) return { ok: false, reason: 'cloud cover missing' };
   const above = levels.filter(l => l.z > surface.z).sort((a, b) => a.z - b.z);
   if (!above.length) return { ok: false, reason: 'no pressure level above model ground' };

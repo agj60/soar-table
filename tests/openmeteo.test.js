@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { forecastUrl, metaUrl, parseRunInit, parseForecast } from '../js/openmeteo.js';
+import { buildDays } from '../js/days.js';
 
 const close = (actual, expected, tol) =>
   assert.ok(Math.abs(actual - expected) <= tol, `expected ${expected} ± ${tol}, got ${actual}`);
@@ -84,6 +85,32 @@ test('step carries the display values', () => {
     { time: s.time, date: s.date, hour: s.hour, lead: s.leadHours, cape: s.cape, cloud: s.cloud, wind10: s.wind10, gust: s.gust, t: s.t2c, td: s.td2c },
     { time: '2026-11-06T09:00', date: '2026-11-06', hour: 9, lead: 120, cape: 400, cloud: { total: 40, low: 20, mid: 15, high: 5 },
       wind10: { speed: 3, dir: 180 }, gust: 6, t: 26, td: 16 });
+});
+
+// Every hourly variable null at the given indexes, as Open-Meteo returns past the end of a model's run.
+function blankAt(r, idxs) {
+  for (const [k, v] of Object.entries(r.hourly)) if (k !== 'time') r.hourly[k] = v.map((x, i) => (idxs.includes(i) ? null : x));
+  return r;
+}
+
+test('an hour the model returned nothing for is not a computed hour', () => {
+  assert.deepEqual(parseForecast(blankAt(resp(), [3]), 'gfs', INIT).steps.map(s => s.hour), [9]);
+});
+
+test('a day whose computed hours all came back empty gets no chip', () =>
+  assert.deepEqual(buildDays(parseForecast(blankAt(resp(), [0, 3]), 'gfs', INIT).steps, 688), []));
+
+test('rain is unknown, not zero, when a value in its interval is missing', () => {
+  const s = parseForecast(resp({ precipitation: [0.3, null, 0.5, 0.6, 0.7] }), 'gfs', INIT).steps;
+  assert.equal(s[1].rainMm, null);
+  close(s[0].rainMm, 0.3, 1e-9);
+});
+
+test('missing surface values stay missing instead of becoming 0 or 0 °C', () => {
+  const s = parseForecast(resp({ surface_pressure: [null, 930, 930, 930, 930], dew_point_2m: [null, 16, 16, 16, 16],
+    wind_speed_10m: [null, 3, 3, 3, 3] }), 'gfs', INIT).steps[0].sounding.surface;
+  assert.equal(s.p, null); assert.equal(s.td, null); assert.equal(s.vx, null); assert.equal(s.vy, null);
+  close(s.t, 26 + 273.15, 1e-9);
 });
 
 test('missing grid elevation falls back to the field', () => {

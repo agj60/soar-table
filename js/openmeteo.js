@@ -8,7 +8,9 @@ const SURFACE = ['temperature_2m', 'dew_point_2m', 'relative_humidity_2m', 'surf
   'cloud_cover_high'];
 const PER_LEVEL = ['temperature', 'relative_humidity', 'dew_point', 'geopotential_height', 'wind_speed', 'wind_direction'];
 const HOUR_MS = 3600000;
-const K = c => c + 273.15;
+// Missing stays missing: null must never turn into 0 °C, 0 Pa or a calm wind.
+const K = c => (c == null ? null : c + 273.15);
+const times = (v, f) => (v == null ? null : v * f);
 
 export function forecastUrl(modelKey, { forecastDays } = {}) {
   const m = MODELS[modelKey];
@@ -37,6 +39,7 @@ export function parseRunInit(metaJson) {
 
 // Wind towards which the air moves, from speed and the direction it comes from.
 function components(speed, dirDeg) {
+  if (speed == null || dirDeg == null) return { vx: null, vy: null };
   const r = dirDeg * Math.PI / 180;
   return { vx: -speed * Math.sin(r), vy: -speed * Math.cos(r) };
 }
@@ -56,20 +59,26 @@ export function parseForecast(json, modelKey, runInitMs) {
     const tsMs = tsOf(i);
     const leadHours = (tsMs - runInitMs) / HOUR_MS;
     if (!isComputedStep(modelKey, leadHours)) continue;
+    // Past the end of a run Open-Meteo returns the hour with every value null: the model computed nothing there.
+    if (SURFACE.every(k => at(k, i) == null)) continue;
 
     // Rain since the previous computed step; Open-Meteo's native values each cover their own interval.
+    // One missing value in the interval makes the total unknown rather than smaller.
     const from = lastKept < 0 ? i : lastKept + 1;
     let rainMm = 0;
-    for (let j = from; j <= i; j++) rainMm += Math.max(0, at('precipitation', j) ?? 0);
+    for (let j = from; j <= i && rainMm !== null; j++) {
+      const p = at('precipitation', j);
+      rainMm = p == null ? null : rainMm + Math.max(0, p);
+    }
     const rainHours = lastKept < 0 ? nativeHours : (tsMs - tsOf(lastKept)) / HOUR_MS;
     lastKept = i;
 
     const wind10 = { speed: at('wind_speed_10m', i), dir: at('wind_direction_10m', i) };
     const surface = {
       z: gridElevation,
-      p: at('surface_pressure', i) * 100,
+      p: times(at('surface_pressure', i), 100),
       t: K(at('temperature_2m', i)),
-      rh: at('relative_humidity_2m', i) / 100,
+      rh: times(at('relative_humidity_2m', i), 0.01),
       td: K(at('dew_point_2m', i)),
       ...components(wind10.speed, wind10.dir),
     };

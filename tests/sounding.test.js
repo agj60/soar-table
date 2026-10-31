@@ -53,6 +53,12 @@ test('Cu forms only below BL top', () => {
   assert.equal(computeSoaring(at({ ...S, td: 293.6 }, [A, B])).cuForms, false);
   assert.equal(r.odForms, r.odBase < r.blTop);
 });
+test('missing surface values are reported by name, not computed', () => {
+  for (const [field, reason] of [['p', 'surface pressure missing'], ['t', 'surface temperature missing'],
+    ['rh', 'surface humidity missing'], ['td', 'surface dewpoint missing'], ['vx', 'surface wind missing']])
+    assert.deepEqual(computeSoaring(at({ ...S, [field]: null }, [A, B])), { ok: false, reason }, field);
+});
+
 test('no level above ground is reported, not zero', () => {
   assert.deepEqual(computeSoaring(at(S, [{ ...A, z: 650 }])), { ok: false, reason: 'no pressure level above model ground' });
 });

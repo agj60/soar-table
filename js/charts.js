@@ -86,7 +86,7 @@ export function rainCapeSvg(hours, width) {
 /** The day chip's tiny Climb curve. */
 export function chipSvg(hours, width) {
   const H = 20;
-  return svg(width, H, line(hours, 'climb', width, v => H - 1 - frac(v, SCALE.climb) * (H - 2), 'chip', false));
+  return svg(width, H, line(hours, 'climb', width, v => H - 1 - frac(v, SCALE.climb) * (H - 2), 'chipline', false));
 }
 
 /** 10 m wind (arrow towards where it blows, speed) and gust, one slot per window hour. */

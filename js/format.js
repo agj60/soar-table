@@ -44,6 +44,21 @@ export function groundLine(modelLabel, ground, fallback, fieldElevation = FIELD.
     : `${modelLabel} ground ${Math.round(ground)} m · field ${fieldElevation} m`;
 }
 
+// Cell opacity grows with cover, which looks darker on a light page and brighter on a dark one: say neither.
+export const CLOUD_LEGEND = 'rows: high · mid · low; faint = little, solid = overcast';
+
+/**
+ * The day's rain and the hours it really covers. Each computed hour's total reaches back to the previous computed hour,
+ * so the span starts before the first hour shown and depends on the model; "—" when any part is unknown.
+ */
+export function rainSpan(hours) {
+  if (!hours.length || hours.some(h => !has(h.rainMm))) return DASH;
+  const sorted = [...hours].sort((a, b) => a.hour - b.hour);
+  const mm = sorted.reduce((s, h) => s + h.rainMm, 0);
+  const pad = n => String(n).padStart(2, '0');
+  return `${n1(mm)} mm ${pad(sorted[0].hour - sorted[0].rainHours)}:00–${pad(sorted[sorted.length - 1].hour)}:00`;
+}
+
 /** HH:MM at the field. */
 export function fieldClock(ms) {
   return new Intl.DateTimeFormat('en-GB', { timeZone: FIELD.tz, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })

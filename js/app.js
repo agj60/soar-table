@@ -4,7 +4,7 @@ import { MODELS, MODEL_ORDER, DEFAULT_MODEL, WINDOW } from './config.js';
 import { loadModel, loadReports, runLabel } from './load.js';
 import { defaultDayIndex } from './days.js';
 import { climbHcritSvg, cloudSvg, rainCapeSvg, chipSvg, windRowHtml } from './charts.js';
-import { detailRows, groundLine, fieldClock } from './format.js';
+import { detailRows, groundLine, fieldClock, rainSpan, CLOUD_LEGEND } from './format.js';
 
 const AISWEB = 'https://aisweb.decea.mil.br/?i=aerodromos&amp;codigo=SBSJ#met';
 const REFETCH_MS = 30 * 60 * 1000;
@@ -58,16 +58,15 @@ const card = (title, right, body) => `<div class="card"><div class="cap"><span>$
 function renderDay(model) {
   const day = model.days.find(d => d.date === state.date);
   const width = Math.max(240, Math.round(($('charts').clientWidth || 320) - 20));
-  const rain = day.hours.reduce((s, h) => s + (h.rainMm || 0), 0);
   const capes = day.hours.map(h => h.cape).filter(v => v != null);
   $('dayhead').textContent = longDate(day.date);
   $('charts').innerHTML =
     card('Climb <span class="dim">(bars, m/s)</span> · Hcrit <span class="dim">(line, m above model ground)</span>',
       `max <b>${day.maxClimb == null ? '—' : day.maxClimb.toFixed(1)}</b> m/s · <b>${day.maxHcritAgl ?? '—'}</b> m`,
       climbHcritSvg(day.hours, width) + axis()) +
-    card('Cloud <span class="dim">(rows: high · mid · low, darker = more)</span>', '', cloudSvg(day.hours, width)) +
+    card(`Cloud <span class="dim">(${esc(CLOUD_LEGEND)})</span>`, '', cloudSvg(day.hours, width)) +
     card('Rain <span class="dim">(bars, mm)</span> · CAPE <span class="dim">(line, J/kg)</span>',
-      `<b>${rain.toFixed(1)}</b> mm · max <b>${capes.length ? Math.round(Math.max(...capes)) : '—'}</b> J/kg`,
+      `${esc(rainSpan(day.hours))} · max <b>${capes.length ? Math.round(Math.max(...capes)) : '—'}</b> J/kg`,
       rainCapeSvg(day.hours, width)) +
     card('Wind 10 m <span class="dim">(m/s, gust below)</span>', '', `<div class="wind">${windRowHtml(day.hours)}</div>` + axis());
   renderDetail(model, day);

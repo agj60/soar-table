@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { detailRows, groundLine, fieldClock } from '../js/format.js';
+import { detailRows, groundLine, fieldClock, rainSpan, CLOUD_LEGEND } from '../js/format.js';
 
 const HOUR = {
   time: '2026-11-01T15:00', hour: 15, climb: 1.234, hcritAgl: 1072, bs: 0.514, blTopAgl: 1252, cuBaseAgl: 1289, cuForms: false,
@@ -43,6 +43,21 @@ test('missing values show a dash and the reason, never 0', () => {
 test('ground line names the model ground, or says the field elevation stands in', () => {
   assert.equal(groundLine('GFS', 688, false, 583), 'GFS ground 688 m · field 583 m');
   assert.equal(groundLine('ICON', 583, true, 583), 'ICON gave no ground height · field elevation 583 m used');
+});
+
+test('cloud legend reads the same in the light and dark themes', () => {
+  assert.doesNotMatch(CLOUD_LEGEND, /darker|lighter|brighter/);
+  assert.match(CLOUD_LEGEND, /faint = little, solid = overcast/);
+});
+
+test('the day rain total names the hours it actually covers', () => {
+  const at = (hour, rainMm, rainHours) => ({ hour, rainMm, rainHours });
+  const hourly = Array.from({ length: 10 }, (_, i) => at(9 + i, 0.25, 1));
+  assert.equal(rainSpan(hourly), '2.5 mm 08:00–18:00');
+  assert.equal(rainSpan([at(9, 1.2, 3), at(12, 0, 3), at(15, 0.4, 3), at(18, 0, 3)]), '1.6 mm 06:00–18:00');
+  assert.equal(rainSpan([at(15, 0.5, 6), at(9, 2, 6)]), '2.5 mm 03:00–15:00');          // ECMWF 6-hourly, any order
+  assert.equal(rainSpan([at(9, 1, 1), at(10, null, 1)]), '—');
+  assert.equal(rainSpan([]), '—');
 });
 
 test('clock time is field-local whatever the viewer zone', () =>
